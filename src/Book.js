@@ -4,7 +4,7 @@ class Book extends React.Component {
   render() {
     return (
       <li>
-        Book
+        {this.props.book.title} by {this.props.book.authors[0]}
       </li>
     );
   }
