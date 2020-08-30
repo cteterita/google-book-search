@@ -1,10 +1,18 @@
 import React from 'react';
+import SearchBar from './SearchBar';
+import BookList from './BookList';
 
 function App() {
   return (
-    <main className='App'>
-      {/* content goes here */}
-    </main>
+    <>
+      <header>
+        <h1>Google Book Search</h1>
+      </header>
+      <main className='App'>
+        <SearchBar />
+        <BookList />
+      </main>
+    </>
   );
 }
 
