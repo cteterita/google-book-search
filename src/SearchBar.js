@@ -1,11 +1,13 @@
 import React from 'react';
 
-function SearchBar() {
-  return (
-    <form>
+class SearchBar extends React.Component {
+  render() {
+    return (
+      <form>
         Search Bar
-    </form>
-  );
+      </form>
+    );
+  }
 }
 
 export default SearchBar;

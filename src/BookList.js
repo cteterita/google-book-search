@@ -2,12 +2,14 @@ import React from 'react';
 
 import Book from './Book';
 
-function BookList() {
-  return (
-    <ul>
+class BookList extends React.Component {
+  render() {
+    return (
+      <ul>
         <Book />
-    </ul>
-  );
+      </ul>
+    );
+  }
 }
 
 export default BookList;

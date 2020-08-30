@@ -1,11 +1,13 @@
 import React from 'react';
 
-function Book() {
-  return (
-    <li>
+class Book extends React.Component {
+  render() {
+    return (
+      <li>
         Book
-    </li>
-  );
+      </li>
+    );
+  }
 }
 
 export default Book;
