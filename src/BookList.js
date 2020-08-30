@@ -5,12 +5,15 @@ import Book from './Book';
 class BookList extends React.Component {
   render() {
     const books = this.props.bookList.map((book, i) => {
-      return <Book book={book} id={i} />
+      return <Book book={book} key={i} />
     });
     return (
-      <ul>
-        {books}
-      </ul>
+      <div>
+        <p>Books matching {this.props.searchTerm} </p>
+        <ul>
+          {books}
+        </ul>
+      </div>
     );
   }
 }

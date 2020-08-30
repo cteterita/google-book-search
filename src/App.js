@@ -16,17 +16,17 @@ class App extends React.Component {
         printType: 'all',
         bookType: 'all'
       },
-      searchTerm: 'Dogs'
+      searchTerm: ''
     }
   }
-  componentDidMount() {
-    fetch(`${base_url}?q=${this.state.searchTerm}&api_key=${apiKey}`)
+  newSearch(searchTerm) {
+    fetch(`${base_url}?q=${encodeURI(searchTerm)}&api_key=${apiKey}`)
       .then(response => response.json())
       .then(data => {
         const bookList = data.items.map(item => {
           return item.volumeInfo
         })
-        this.setState({ bookList });
+        this.setState({ bookList, searchTerm });
       });
   }
   render() {
@@ -36,9 +36,14 @@ class App extends React.Component {
           <h1>Google Book Search</h1>
         </header>
         <main className='App'>
-          <SearchBar />
-          <Filter />
-          <BookList bookList={this.state.bookList} filters={this.state.filters} />
+          <SearchBar 
+            handleSearch={term => this.newSearch(term)} />
+          <Filter 
+            handleUpdateFilters={filters => this.updateFilters(filters)} />
+          <BookList 
+            bookList={this.state.bookList} 
+            filters={this.state.filters} 
+            searchTerm={this.state.searchTerm} />
         </main>
       </>
     );
